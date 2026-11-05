@@ -1,0 +1,28 @@
+facts:
+  - Estudiante(Ana)
+  - Estudiante(Luis)
+  - Profesor(Marta)
+  - TieneCredencial(Ana)
+  - TieneCredencial(Marta)
+  - HorarioNocturno(Hoy)
+
+rules:
+  - id: R_miembro_est
+    head: Miembro(x)
+    body:
+      - Estudiante(x)
+      - TieneCredencial(x)
+  - id: R_miembro_prof
+    head: Miembro(x)
+    body:
+      - Profesor(x)
+  - id: R_acceso
+    head: AccesoNoche(x)
+    body:
+      - Miembro(x)
+      - HorarioNocturno(Hoy)
+  - id: R_beca
+    head: Becario(x)
+    body:
+      - Estudiante(x)
+      - TieneCredencial(x)
